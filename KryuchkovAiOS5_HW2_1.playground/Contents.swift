@@ -69,11 +69,16 @@ class Player: Human, TeamSettings {
 
 // НАСЛЕДОВАНИЕ (Судья - подкласс общего класса человек, который берет базовые свойства (такие как имя, фамилия, дата рождения), а также метод (высчитать возраст)
 class Judge: Human {
-    var level: Int
+    var categoryLevel: Int
     
-    init(firstName: String, secondName: String, yearBirthday: Int, level:Int) {
+    // Метод для изменения категории судьи и описания почему
+    func changeCategoryLevel(newLevel: Int, decription: String) {
+        print("")
+    }
+    
+    init(firstName: String, secondName: String, yearBirthday: Int, categoryLevel:Int) {
         
-        self.level = level
+        self.categoryLevel = categoryLevel
         
         super.init(firstName: firstName, secondName: secondName, yearBirthday: yearBirthday)
     }
