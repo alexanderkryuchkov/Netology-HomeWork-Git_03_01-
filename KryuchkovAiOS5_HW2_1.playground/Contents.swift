@@ -52,6 +52,20 @@ class Human: HumanSettings {
 class Player: Human, TeamSettings {
     var teamId: Int
     var teamName: String
+    
+    // ИНКАПСУЛЯЦИЯ
+    // Приватное свойство (рейтинг игрока)
+    private var playerLevel: Int = 0
+    
+    // Метод для изменения рейтинга игрока и описания почему
+    func changePlayerLevel(newLevel: Int, decription: String) {
+        print("")
+    }
+    
+    // Метод позволяющий узнать рейтинг игрока
+    func getPlayerLevel(){
+        print("")
+    }
    
     // Метод протокола изменить команду
     func changeTeam(from: Int, to: Int) {
@@ -69,10 +83,17 @@ class Player: Human, TeamSettings {
 
 // НАСЛЕДОВАНИЕ (Судья - подкласс общего класса человек, который берет базовые свойства (такие как имя, фамилия, дата рождения), а также метод (высчитать возраст)
 class Judge: Human {
-    var categoryLevel: Int
+    // ИНКАПСУЛЯЦИЯ
+    // Приватное свойство (категория судьи)
+    private var categoryLevel: Int = 0
     
     // Метод для изменения категории судьи и описания почему
     func changeCategoryLevel(newLevel: Int, decription: String) {
+        print("")
+    }
+    
+    // Метод позволяющий узнать категорию судьи
+    func getCategoryLevel(){
         print("")
     }
     
