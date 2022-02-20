@@ -25,7 +25,7 @@ protocol TeamSettings {
 }
 
 
-//
+// Основной класс человек, которому принадлежат классы (игрок и судья)
 class Human: HumanSettings {
     
     // Свойства объекта человек (Имя, Фамилия, год рождения)
@@ -38,6 +38,9 @@ class Human: HumanSettings {
         print("")
     }
     
+    func description(){
+        print("Это общий метод описания объекта основного класса Human")
+    }
     
     init(firstName: String, secondName: String, yearBirthday: Int) {
         self.firstName = firstName
@@ -72,6 +75,11 @@ class Player: Human, TeamSettings {
         print("")
     }
     
+    // ПОЛИМОРФИЗМ
+    override func description(){
+        print("Это общий метод описания объекта подкласса Player класса Human")
+    }
+    
     init(firstName: String, secondName: String, yearBirthday: Int, teamId: Int, teamName: String) {
 
         self.teamId = teamId
@@ -80,6 +88,7 @@ class Player: Human, TeamSettings {
         super.init(firstName: firstName, secondName: secondName, yearBirthday: yearBirthday)
     }
 }
+
 
 // НАСЛЕДОВАНИЕ (Судья - подкласс общего класса человек, который берет базовые свойства (такие как имя, фамилия, дата рождения), а также метод (высчитать возраст)
 class Judge: Human {
@@ -97,6 +106,11 @@ class Judge: Human {
         print("")
     }
     
+    // ПОЛИМОРФИЗМ
+    override func description(){
+        print("Это общий метод описания объекта подкласса Judge класса Human")
+    }
+    
     init(firstName: String, secondName: String, yearBirthday: Int, categoryLevel:Int) {
         
         self.categoryLevel = categoryLevel
@@ -104,4 +118,21 @@ class Judge: Human {
         super.init(firstName: firstName, secondName: secondName, yearBirthday: yearBirthday)
     }
     
+}
+
+
+// Основной класс Команда, действующий согласно протоколу настройки команды
+class Team: TeamSettings {
+    var teamId: Int = 0
+    
+    var teamName: String = ""
+    
+    func changeTeam(from: Int, to: Int) {
+        print("")
+    }
+    
+    init(teamId: Int, teamName:String) {
+        self.teamId = teamId
+        self.teamName = teamName
+    }
 }
